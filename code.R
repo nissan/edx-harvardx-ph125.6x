@@ -24,6 +24,17 @@ class(dat2$region)
 dat3 <- read.csv(filename, stringsAsFactors = FALSE)
 class(dat3$abb)
 
+url <- "https://raw.githubusercontent.com/rafalab/dslabs/master/inst/extdata/murders.csv"
+data <- read_csv(url)
+
+download.file(url, "murders.csv")
+tmp_filename <- tempfile()
+download.file(url, tmp_filename)
+dat <- read_csv(tmp_filename)
+file.remove(tmp_filename)
+
+
+
 
 ## From lesson plan
 library(dslabs)
